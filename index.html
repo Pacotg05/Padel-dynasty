@@ -13,7 +13,7 @@
       color: #fcd34d;
     }
     .overlay {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.6);
     }
     section {
       scroll-margin-top: 80px;
@@ -22,12 +22,8 @@
 </head>
 <body class="text-yellow-300">
 
-  <!-- HERO CON VIDEO DE FONDO Y UNA IMAGEN DE PISTA DE PADEL -->
-  <header class="relative h-screen flex items-center justify-center text-white text-center">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-      <source src="https://cdn.premierpadel.com/uploads/2022/12/PP-Milan22-Highlights.mp4" type="video/mp4" />
-      Tu navegador no soporta video HTML5.
-    </video>
+  <!-- HERO SOLO CON IMAGEN DE FONDO -->
+  <header class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('https://www.padeladdict.com/wp-content/uploads/2022/08/nueva-pista-panoramica-padel-vision.jpg');">
     <div class="overlay absolute inset-0"></div>
     <div class="z-10">
       <img src="https://i.imgur.com/Qc6VfLN.png" alt="Logo Padel Dynasty" class="mx-auto w-40 mb-6" />
@@ -35,8 +31,6 @@
       <p class="text-xl mb-6">Donde nace la leyenda, juega la dinastía.</p>
       <a href="#club" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition">Explorar</a>
     </div>
-    <!-- Imagen de pista de padel como fondo -->
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://www.padelclubtennis.com/wp-content/uploads/2021/11/pista-de-padel.jpg'); opacity: 0.3;"></div>
   </header>
 
   <!-- NAVBAR -->
@@ -89,26 +83,25 @@
         <img src="https://padeladdict.com/wp-content/uploads/2021/11/jugadores-pista-padel.jpg" class="rounded-xl shadow-lg" />
         <img src="https://as.com/meristation/imagenes/2022/12/15/noticias/1671118979_268235_1671119163_noticia_normal.jpg" class="rounded-xl shadow-lg" />
         <img src="https://www.worldpadeltour.com/media/2021/10/WPT_SMASH_LONDON.jpg" class="rounded-xl shadow-lg" />
-        <video controls class="rounded-xl shadow-lg w-full">
-          <source src="https://cdn.premierpadel.com/uploads/2022/12/PP-Milan22-Highlights.mp4" type="video/mp4" />
-          Tu navegador no soporta video HTML5.
-        </video>
+        <!-- Video de YouTube compatible -->
+        <iframe class="rounded-xl shadow-lg w-full h-64 md:col-span-2" src="https://www.youtube.com/embed/0OYYNmZrY9M" frameborder="0" allowfullscreen></iframe>
       </div>
     </section>
 
     <section id="resenas">
       <h2 class="text-4xl font-bold mb-4">Reseñas</h2>
-      <div class="space-y-6">
+      <div id="resena-lista" class="space-y-6">
         <blockquote class="italic">"Un lugar increíble para mejorar mi juego. El ambiente es brutal." – Laura M.</blockquote>
         <blockquote class="italic">"Las pistas son de lo mejor que he jugado. Todo cuidado al detalle." – Mario T.</blockquote>
         <blockquote class="italic">"El torneo del fin de semana fue espectacular. Volveré seguro." – Carla G.</blockquote>
-        <!-- Formulario para añadir reseñas -->
-        <h3 class="text-xl font-semibold mt-8">Añadir tu reseña</h3>
-        <form action="#" class="space-y-4 mt-4">
-          <textarea class="w-full p-4 bg-gray-800 text-yellow-300 rounded-lg" placeholder="Escribe tu reseña aquí..." rows="4"></textarea>
-          <button type="submit" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition">Enviar Reseña</button>
-        </form>
       </div>
+
+      <!-- Formulario para añadir reseñas -->
+      <h3 class="text-xl font-semibold mt-8">Añadir tu reseña</h3>
+      <form id="resena-form" class="space-y-4 mt-4">
+        <textarea id="resena-texto" class="w-full p-4 bg-gray-800 text-yellow-300 rounded-lg" placeholder="Escribe tu reseña aquí..." rows="4"></textarea>
+        <button type="submit" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition">Enviar Reseña</button>
+      </form>
     </section>
 
     <section id="contacto">
@@ -125,6 +118,7 @@
     <p>&copy; 2025 Padel Dynasty | Diseñado con pasión por Paco Tortosa Gómez</p>
   </footer>
 
+  <!-- Animación + Reseñas dinámicas -->
   <script>
     ScrollReveal().reveal('section', {
       duration: 1000,
@@ -132,7 +126,21 @@
       distance: '30px',
       reset: false
     });
-  </script>
 
+    // Añadir reseña sin recargar
+    const form = document.getElementById('resena-form');
+    const lista = document.getElementById('resena-lista');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const texto = document.getElementById('resena-texto').value.trim();
+      if (texto !== '') {
+        const nuevo = document.createElement('blockquote');
+        nuevo.className = 'italic';
+        nuevo.textContent = `"${texto}" – Usuario Anónimo`;
+        lista.appendChild(nuevo);
+        document.getElementById('resena-texto').value = '';
+      }
+    });
+  </script>
 </body>
 </html>
