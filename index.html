@@ -18,15 +18,15 @@
     section {
       scroll-margin-top: 80px;
     }
+	
   </style>
 </head>
 <body class="text-yellow-300">
 
-  <!-- HERO CON IMAGEN DE FONDO -->
-  <header class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('https://i.imgur.com/A_header_image_for_Padel_Dynasty_website_showcas.png');">
+  <!-- HERO SOLO CON IMAGEN DE FONDO -->
+  <header class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('fondo.jpg');">
     <div class="overlay absolute inset-0"></div>
     <div class="z-10">
-      <img src="https://i.imgur.com/Qc6VfLN.png" alt="Logo Padel Dynasty" class="mx-auto w-40 mb-6" />
       <h1 class="text-5xl font-bold mb-4">Padel Dynasty</h1>
       <p class="text-xl mb-6">Donde nace la leyenda, juega la dinastía.</p>
       <a href="#club" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition">Explorar</a>
@@ -80,10 +80,10 @@
     <section id="galeria">
       <h2 class="text-4xl font-bold mb-4">Galería</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Videos disponibles sobre Padel -->
-        <iframe class="rounded-xl shadow-lg w-full h-64" src="https://www.youtube.com/embed/XTkVtv3ZdO4" frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-xl shadow-lg w-full h-64" src="https://www.youtube.com/embed/1z5yMvquht0" frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-xl shadow-lg w-full h-64" src="https://www.youtube.com/embed/_yV5i-x6h2M" frameborder="0" allowfullscreen></iframe>
+        <img src="https://padeladdict.com/wp-content/uploads/2021/11/jugadores-pista-padel.jpg" class="rounded-xl shadow-lg" />
+        <img src="https://as.com/meristation/imagenes/2022/12/15/noticias/1671118979_268235_1671119163_noticia_normal.jpg" class="rounded-xl shadow-lg" />
+        <img src="https://www.worldpadeltour.com/media/2021/10/WPT_SMASH_LONDON.jpg" class="rounded-xl shadow-lg" />
+        <iframe class="rounded-xl shadow-lg w-full h-64 md:col-span-2" src="https://www.youtube.com/embed/0OYYNmZrY9M" frameborder="0" allowfullscreen></iframe>
       </div>
     </section>
 
@@ -94,8 +94,6 @@
         <blockquote class="italic">"Las pistas son de lo mejor que he jugado. Todo cuidado al detalle." – Mario T.</blockquote>
         <blockquote class="italic">"El torneo del fin de semana fue espectacular. Volveré seguro." – Carla G.</blockquote>
       </div>
-
-      <!-- Formulario para añadir reseñas -->
       <h3 class="text-xl font-semibold mt-8">Añadir tu reseña</h3>
       <form id="resena-form" class="space-y-4 mt-4">
         <textarea id="resena-texto" class="w-full p-4 bg-gray-800 text-yellow-300 rounded-lg" placeholder="Escribe tu reseña aquí..." rows="4"></textarea>
@@ -112,12 +110,10 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="bg-black text-yellow-300 py-6 text-center">
     <p>&copy; 2025 Padel Dynasty | Diseñado con pasión por Paco Tortosa Gómez</p>
   </footer>
 
-  <!-- Animación + Reseñas dinámicas -->
   <script>
     ScrollReveal().reveal('section', {
       duration: 1000,
@@ -126,7 +122,6 @@
       reset: false
     });
 
-    // Añadir reseña sin recargar
     const form = document.getElementById('resena-form');
     const lista = document.getElementById('resena-lista');
     form.addEventListener('submit', function (e) {
@@ -141,6 +136,5 @@
       }
     });
   </script>
-
 </body>
-</html>
+</html>>
